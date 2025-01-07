@@ -39,11 +39,13 @@ class AudioManager {
         this.playButton.html('<span class="play"></span>');
         this.playButton.attribute("class", "play_btn play");
         this.audioTrack.stop();
+    	loup.hide();
         this.resetLyrics();
       } else {
         this.playButton.html('<span class="stop"></span>');
         this.playButton.attribute("class", "play_btn stop");
         this.audioTrack.play();
+    	loup.hide();
       }
     }
   }
