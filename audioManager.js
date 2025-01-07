@@ -59,6 +59,7 @@ class AudioManager {
     this.soundReady = false;
     this.playButton.html("...");
     this.playButton.attribute("class", "play_btn warning");
+    loup.hide();
 
     // Load lyrics and audio track
     loadJSON(`assets/lyrics/${selectedTrack}.json`, (data) => {
