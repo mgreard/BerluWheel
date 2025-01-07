@@ -1,0 +1,162 @@
+{
+  "lyrics": [
+    {
+      "time": 15.12,
+      "text": "pour un badge VIP"
+    },
+    {
+      "time": 16.92,
+      "text": "pendant une longue intro"
+    },
+    {
+      "time": 18.77,
+      "text": "pour voir la queue du loup"
+    },
+    {
+      "time": 20.66,
+      "text": "pour douze heures de TO"
+    },
+    {
+      "time": 22.58,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 25.36,
+      "text": ""
+    },
+    {
+      "time": 26.56,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 28.62,
+      "text": ""
+    },
+    {
+      "time": 30.56,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 34.35,
+      "text": "sur la berlu TV"
+    },
+    {
+      "time": 38.17,
+      "text": "on fait le cri du loup"
+    },
+    {
+      "time": 42.09,
+      "text": "auto-roue c est doublee"
+    },
+    {
+      "time": 43.75,
+      "text": ""
+    },
+    {
+      "time": 49.96,
+      "text": "pour faire un contre-cut"
+    },
+    {
+      "time": 51.8,
+      "text": "entendre une anecdote"
+    },
+    {
+      "time": 53.75,
+      "text": "pour voir la queue du loup"
+    },
+    {
+      "time": 55.59,
+      "text": "pour gagner le jackpot"
+    },
+    {
+      "time": 57.57,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 59.83,
+      "text": ""
+    },
+    {
+      "time": 61.56,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 63.73,
+      "text": ""
+    },
+    {
+      "time": 65.51,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 69.31,
+      "text": "sur la berlu TV"
+    },
+    {
+      "time": 73.13,
+      "text": "on fait le cri du loup"
+    },
+    {
+      "time": 76.76,
+      "text": "bananes bien depensees"
+    },
+    {
+      "time": 79.69,
+      "text": ""
+    }
+  ],
+  "events": [
+    {
+      "time": 23.974580498866214,
+      "action": "start_roll"
+    },
+    {
+      "time": 27.962607709750568,
+      "action": "start_roll"
+    },
+    {
+      "time": 31.747460317460316,
+      "action": "start_roll"
+    },
+    {
+      "time": 31.747460317460316,
+      "action": "show_loup"
+    },
+    {
+      "time": 39.47390022675737,
+      "action": "start_roll"
+    },
+    {
+      "time": 43.055578231292515,
+      "action": "hide_loup"
+    },
+    {
+      "time": 58.92061224489796,
+      "action": "start_roll"
+    },
+    {
+      "time": 62.728684807256236,
+      "action": "start_roll"
+    },
+    {
+      "time": 66.6818820861678,
+      "action": "start_roll"
+    },
+    {
+      "time": 66.6818820861678,
+      "action": "show_loup"
+    },
+    {
+      "time": 70.59444444444445,
+      "action": "start_roll"
+    },
+    {
+      "time": 74.4721768707483,
+      "action": "start_roll"
+    },
+    {
+      "time": 78.18736961451248,
+      "action": "hide_loup"
+    }
+  ]
+} 
