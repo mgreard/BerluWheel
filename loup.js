@@ -37,11 +37,7 @@ class Loup {
     if (this.isVisible) {
       const energy = audioManager.fftAnalyzer.getEnergy(10, 100); // Adjust frequency range
       
-      if(!psycheMode){
-        if(audioManager.peakDetector.isDetected){
-          this.nextImage();
-        }
-      } else if(energy > 150 && frameCount%6 == 0){
+      if(energy > 150 && frameCount%6 == 0){
           this.nextImage();
       }
 

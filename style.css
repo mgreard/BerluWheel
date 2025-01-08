@@ -30,6 +30,9 @@ button, select {
   color: #fff;
   background-color: rgba(79, 70, 229, 0.9);
   outline: none;
+  margin-left: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
 select:hover,
@@ -45,6 +48,7 @@ button:focus {
 .play_btn{
   border-radius: 6px 0 0 6px;
   padding: 8px 12px;
+  margin-left: 0;
 }
 
 .play_btn.play .play{
@@ -64,10 +68,10 @@ button:focus {
 .tracks_select{
   padding: 8px 8px 8px 12px;
   border-radius: 0 6px 6px 0;
+  margin-left: 0;
 }
 
 .psyche_btn{
-  margin-left: 12px;
   padding: 8px 12px;
   border-radius: 6px;
 }

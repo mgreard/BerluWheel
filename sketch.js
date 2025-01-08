@@ -1,11 +1,14 @@
 // 🎨 Shader pour le déplacement des couleurs
-let colorDisplacementShader;
+let colorDisplacementShaders = [];
 
 // 🖥️ Visualiseurs audio
 let waveformVisualizer, spectrumVisualizer;
 
 // 🎶 Gestionnaire audio
 let audioManager;
+
+// 🎨 Initialisation du ThemeManager
+let themeManager;
 
 // 📸 Images et assets
 let bananeImage, boueeImage, myFont;
@@ -18,18 +21,6 @@ let lightCones = [];
 // 🌧️ Images qui tombent en rythme avec la musique
 let imageDrops = [];
 
-let psycheMode = false;
-let psycheTimer = 0;
-
-// 🎨 Segments de roue colorés
-const wheelSegments = [
-  { color: "#06d6a0", weight: 2 },
-  { color: "#fb5607", weight: 2 },
-  { color: "#3a86ff", weight: 2 },
-  { color: "#e63946", weight: 2 },
-  { color: "#8338ec", weight: 2 },
-  { color: "#ffbe0b", weight: 2 }
-];
 
 // Variables for audio analysis and canvas properties
 let audioTrack, fftAnalyzer, peakDetector, amplitudeAnalyzer;
@@ -58,8 +49,9 @@ function setup() {
   canvasWidth = min(windowWidth, 1000);
   canvasHeight = min(windowHeight, 1000);
   createCanvas(canvasWidth, canvasHeight, document.getElementById("canvas"));
-  colorDisplacementShader = createFilterShader(colorDisplacementShaderSrc);
-
+  colorDisplacementShaders[0] = createFilterShader(colorDisplacementShaderSrc);
+  colorDisplacementShaders[1]  = createFilterShader(colorDisplacement2ShaderSrc);
+  
   // 🔊 Outils d'analyse audio
   let fftAnalyzer = new p5.FFT();
   let peakDetector = new p5.PeakDetect();
@@ -68,32 +60,44 @@ function setup() {
   // 🎶 Initialisation du gestionnaire audio
   audioManager = new AudioManager(fftAnalyzer, peakDetector, amplitudeAnalyzer);
   
-  // 🖥️ Initialisation des visualiseurs
-  waveformVisualizer = new Waveform(fftAnalyzer, canvasWidth, canvasHeight, imageWidth);
-  spectrumVisualizer = new Spectrum(fftAnalyzer, canvasWidth, canvasHeight, imageWidth);
+  //Instance globale pour gérer les themes
+  themeManager = new ThemeManager();
+  themeManager.addTheme('default', defaultTheme);
+  themeManager.addTheme('psyche', psycheTheme);
+  themeManager.addTheme('cloud', cloudTheme);
+  themeManager.addTheme('disco', discoTheme);
+  themeManager.addTheme('toy', toyTheme);
+  themeManager.addTheme('sunrise', sunriseTheme);
+  themeManager.applyTheme('default');
   
+  // 🖥️ Initialisation des visualiseurs
+  waveformVisualizer = new Waveform(fftAnalyzer, canvasWidth, canvasHeight);
+  spectrumVisualizer = new Spectrum(fftAnalyzer, canvasWidth, canvasHeight, imageWidth);
 
-  // 🎡 Initialisation des roues
-  wheel1 = new Wheel(wheelSegments, max(canvasWidth * 2.1, canvasHeight * 2.1), 1, true);
-  wheel2 = new Wheel(wheelSegments, imageWidth / 1.5, 2);
-
-  // 💡 Initialisation des cônes de lumière
-  for (let i = 0; i < 10; i++) {
-    lightCones.push(new LightCone(TWO_PI / 10 * i, 1));
-  }
+  resetElements();
   
   // Ajouter une fonction de gestion de la touche pour enregistrer les événements et lyrics
   document.addEventListener("click", recordLyrics);
   document.addEventListener("keypress", recordEvents);
-  
-  //ajout du bouton psychMode
-  addPsycheBtn();
 }
 
+function resetElements(){
+  const theme = themeManager.setting;
+  
+  // 🎡 Initialisation des roues
+  wheel1 = new Wheel(theme.wheelSegments, max(canvasWidth * 2.1, canvasHeight * 2.1), 1);
+  wheel2 = new Wheel(theme.wheelSegments, imageWidth / 1.5, 2, true);
+  
+  // 💡 Initialisation des cônes de lumière
+  lightCones = [];
+  for (let i = 0; i < theme.lightCone.total; i++) {
+    lightCones.push(new LightCone(TWO_PI / theme.lightCone.total * i, 1));
+  }
+}
 
 // Main draw loop to render visuals
 function draw() {
-  psycheTimer++;
+  const theme = themeManager.setting;
   
   // 🎶 Énergie audio pour synchroniser les visuels
   const energy = audioManager.fftAnalyzer.getEnergy(10, 100);
@@ -110,16 +114,10 @@ function draw() {
   wheel1.render();
   
   // 🖥️ Application des shaders et effets
-  filter(colorDisplacementShader);
-  filter(BLUR, psycheMode ? 0 : 3);
-  
-  if(!psycheMode){
-    // 💡 Affichage des cônes de lumière
-    lightCones.forEach((cone) => {
-      cone.update(audioManager.fftAnalyzer);
-      cone.display();
-    });
+  if(theme.general.shaderIndex !== -1){
+    filter(colorDisplacementShaders[theme.general.shaderIndex]);
   }
+  filter(BLUR, theme.general.bgBlur);
   
   // 🌧️ Affichage des images qui tombent
   for (let i = imageDrops.length - 1; i >= 0; i--) {
@@ -130,23 +128,21 @@ function draw() {
       imageDrops.splice(i, 1);
     }
   }
-  background(255, psycheMode ? 0 : 50)
-  filter(BLUR, psycheMode ? 2 : 4);
+  background(...theme.general.bgColor, theme.general.bgAlpha)
+  filter(BLUR, theme.general.dropBlur);
 
+  // 💡 Affichage des cônes de lumière
+  lightCones.forEach((cone) => {
+    cone.update(audioManager.fftAnalyzer);
+    cone.display();
+  });
+  
   // 🖥️ Affichage de Spectrum
   spectrumVisualizer.render(); 
   
-  if(psycheMode){
-    // 💡 Affichage des cônes de lumière
-    lightCones.forEach((cone) => {
-      cone.update(audioManager.fftAnalyzer);
-      cone.display();
-    });
-  }
-  
   // 🎡 Mise à jour et affichage de la roues centrale
   wheel2.update();
-  wheel2.render(map(energy, 0, 256, imageWidth / 1.5, imageWidth / 1.2));
+  wheel2.render(map(energy, 0, 256, theme.wheelFg.radiusRange[0], theme.wheelFg.radiusRange[1]));
   
   // 🖥️ Affichage de Waveform
   waveformVisualizer.render();
@@ -156,22 +152,7 @@ function draw() {
 
   // 🎤 Synchronisation et affichage des paroles
   audioManager.syncLyrics();
-  if(!psycheMode){
-    audioManager.displayLyrics();
-  }
+  audioManager.displayLyrics();
   audioManager.handleEvents();
   
-}
-
-
-function addPsycheBtn() {
-    psycheButton = createButton().parent("#controls");
-    psycheButton.html("Psyche Mode");
-    psycheButton.attribute("class", "psyche_btn");
-    psycheButton.mousePressed(() => {
-      psycheMode = !psycheMode;
-      if(psycheMode){
-        psycheTimer = 0;
-      }
-    });
 }
