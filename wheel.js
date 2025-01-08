@@ -76,7 +76,7 @@ class Wheel {
   renderSegment(segment, previousTotalAngle, customRadius) {
     noStroke();
     let segmentColor = color(segment.color);
-    segmentColor.setAlpha(customRadius ? 255 : psycheMode ? map(this.timerRotate, 0, 100, 160, 50): 180);
+    segmentColor.setAlpha(customRadius ? 255 : psycheMode ? map(this.timerRotate, 0, 100, 160, 50): 150);
     fill(segmentColor);
     arc(
       0,

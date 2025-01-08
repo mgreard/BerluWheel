@@ -111,7 +111,7 @@ function draw() {
   
   // 🖥️ Application des shaders et effets
   filter(colorDisplacementShader);
-  filter(BLUR, 3);
+  filter(BLUR, psycheMode ? 0 : 3);
   
   if(!psycheMode){
     // 💡 Affichage des cônes de lumière
@@ -130,7 +130,8 @@ function draw() {
       imageDrops.splice(i, 1);
     }
   }
-  filter(BLUR, 1);
+  background(255, psycheMode ? 0 : 50)
+  filter(BLUR, psycheMode ? 2 : 4);
 
   // 🖥️ Affichage de Spectrum
   spectrumVisualizer.render(); 
