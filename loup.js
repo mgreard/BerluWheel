@@ -16,7 +16,7 @@ class Loup {
     this.images[5] = loadImage("assets/images/Loup2.png");
   }
 
-  nextImage(peakDetector) {
+  nextImage() {
     // Change the displayed image on every beat
     this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
   }
@@ -35,13 +35,18 @@ class Loup {
 
   display(audioManager) {
     if (this.isVisible) {
-      if(audioManager.peakDetector.isDetected){
-        this.nextImage();
+      const energy = audioManager.fftAnalyzer.getEnergy(10, 100); // Adjust frequency range
+      
+      if(!psycheMode){
+        if(audioManager.peakDetector.isDetected){
+          this.nextImage();
+        }
+      } else if(energy > 150 && frameCount%6 == 0){
+          this.nextImage();
       }
 
       push();
       translate(canvasWidth / 2, canvasHeight / 2);
-      const energy = audioManager.fftAnalyzer.getEnergy(10, 100); // Adjust frequency range
       const scale = map(energy, 50, 256, 1, 1.2);
       const imgWidth = this.width * scale;
       const imgHeight = this.height * scale;

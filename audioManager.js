@@ -39,13 +39,11 @@ class AudioManager {
         this.playButton.html('<span class="play"></span>');
         this.playButton.attribute("class", "play_btn play");
         this.audioTrack.stop();
-    	loup.hide();
         this.resetLyrics();
       } else {
         this.playButton.html('<span class="stop"></span>');
         this.playButton.attribute("class", "play_btn stop");
         this.audioTrack.play();
-    	loup.hide();
       }
     }
   }
@@ -96,7 +94,7 @@ class AudioManager {
   
   displayLyrics() {
     push();
-    translate(width / 2, height - 120);
+    translate(width / 2, psycheMode ? height/2 + 300: height - 120);
     textAlign(CENTER, CENTER);
     let energy = this.fftAnalyzer.getEnergy(200, 400);
     lyricsTextSize = map(sin(millis() / 1000), -1, 1, 40, 40 * 1.4) * map(energy, 0, 250, 1, 1.05);

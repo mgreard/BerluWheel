@@ -18,6 +18,9 @@ let lightCones = [];
 // 🌧️ Images qui tombent en rythme avec la musique
 let imageDrops = [];
 
+let psycheMode = false;
+let psycheTimer = 0;
+
 // 🎨 Segments de roue colorés
 const wheelSegments = [
   { color: "#06d6a0", weight: 2 },
@@ -82,11 +85,16 @@ function setup() {
   // Ajouter une fonction de gestion de la touche pour enregistrer les événements et lyrics
   document.addEventListener("click", recordLyrics);
   document.addEventListener("keypress", recordEvents);
+  
+  //ajout du bouton psychMode
+  addPsycheBtn();
 }
 
 
 // Main draw loop to render visuals
 function draw() {
+  psycheTimer++;
+  
   // 🎶 Énergie audio pour synchroniser les visuels
   const energy = audioManager.fftAnalyzer.getEnergy(10, 100);
   
@@ -105,11 +113,13 @@ function draw() {
   filter(colorDisplacementShader);
   filter(BLUR, 3);
   
-  // 💡 Affichage des cônes de lumière
-  lightCones.forEach((cone) => {
-    cone.update(audioManager.fftAnalyzer);
-    cone.display();
-  });
+  if(!psycheMode){
+    // 💡 Affichage des cônes de lumière
+    lightCones.forEach((cone) => {
+      cone.update(audioManager.fftAnalyzer);
+      cone.display();
+    });
+  }
   
   // 🌧️ Affichage des images qui tombent
   for (let i = imageDrops.length - 1; i >= 0; i--) {
@@ -123,7 +133,15 @@ function draw() {
   filter(BLUR, 1);
 
   // 🖥️ Affichage de Spectrum
-  spectrumVisualizer.render();
+  spectrumVisualizer.render(); 
+  
+  if(psycheMode){
+    // 💡 Affichage des cônes de lumière
+    lightCones.forEach((cone) => {
+      cone.update(audioManager.fftAnalyzer);
+      cone.display();
+    });
+  }
   
   // 🎡 Mise à jour et affichage de la roues centrale
   wheel2.update();
@@ -140,4 +158,17 @@ function draw() {
   audioManager.displayLyrics();
   audioManager.handleEvents();
   
+}
+
+
+function addPsycheBtn() {
+    psycheButton = createButton().parent("#controls");
+    psycheButton.html("Psyche Mode");
+    psycheButton.attribute("class", "psyche_btn");
+    psycheButton.mousePressed(() => {
+      psycheMode = !psycheMode;
+      if(psycheMode){
+        psycheTimer = 0;
+      }
+    });
 }

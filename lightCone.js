@@ -11,7 +11,7 @@ class LightCone {
   update(fftAnalyzer) {
     // Calculer la luminosité en fonction de la musique
     const energy = fftAnalyzer.getEnergy(100, 300); // Ajuster la plage de fréquences
-    this.opacity = map(energy, 150, 256, 0, 20);
+    this.opacity = map(energy, 150, 256, 0, psycheMode ? 10 : 20);
 
     // Faire tourner le cône de lumière
     this.angle += this.speed;
@@ -37,14 +37,14 @@ class LightCone {
     */
     
     //blendMode(DODGE);
-    blendMode(ADD);
+    blendMode(psycheMode ? BLEND : ADD);
 
     // Dessiner plusieurs couches pour simuler le flou
     for (let i = 0; i < 10; i++) {
       let alpha = map(i, 0, 9, this.opacity, 0);
       let size = map(i, 0, 9, height/2 * 0.5, height/2);
 
-      fill(255, 255, 255, alpha);
+      fill(255, alpha);
       noStroke();
       beginShape();
       vertex(0, 0);

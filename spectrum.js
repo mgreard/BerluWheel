@@ -17,7 +17,9 @@ class Spectrum {
     beginShape();
     strokeWeight(6);
     stroke(255, 255);
-    fill(255, 150);
+    //fill(psycheMode ? 0 : 255, psycheMode ? 255 : 150);
+    fill(psycheMode ? 0 : 255, psycheMode ? 100 : 150);
+    //fill(255, 150);
     for (let i = 10; i < 256; i++) {
       this.renderSection(cachedSpectrum, i, -HALF_PI, HALF_PI);
     }

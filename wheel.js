@@ -4,6 +4,7 @@ class Wheel {
   constructor(segments, radius, minimumTurns = 2, reverse = false) {
     this.segments = segments;
     this.radius = radius;
+    this.originalRadius = radius;
     this.reverse = reverse;
     this.angle = 0;
     this.targetAngle = 0;
@@ -13,6 +14,7 @@ class Wheel {
     this.totalWeights = this.calculateTotalWeights();
     this.segmentAngle = PI / this.totalWeights;
     this.initializeSegments();
+    this.timerRotate = 0;
   }
 
   calculateTotalWeights() {
@@ -37,7 +39,7 @@ class Wheel {
           this.previousAngle = this.angle;
         }
       } else {
-        this.angle -= 0.002;
+        this.angle -= psycheMode ? 0.005 : 0.002;
       }
     } else {
       if (this.isRotating) {
@@ -49,6 +51,13 @@ class Wheel {
       } else {
         this.angle += 0.002;
       }
+    }
+    
+    if(this.isRotating && this.timerRotate < 100){
+      this.timerRotate++;
+    }
+    if(!this.isRotating && this.timerRotate > 0){
+      this.timerRotate--;
     }
   }
 
@@ -67,7 +76,7 @@ class Wheel {
   renderSegment(segment, previousTotalAngle, customRadius) {
     noStroke();
     let segmentColor = color(segment.color);
-    segmentColor.setAlpha(customRadius ? 255 : 180);
+    segmentColor.setAlpha(customRadius ? 255 : psycheMode ? map(this.timerRotate, 0, 100, 160, 50): 180);
     fill(segmentColor);
     arc(
       0,

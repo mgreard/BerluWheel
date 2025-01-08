@@ -18,7 +18,7 @@ class Waveform {
     for (let i = 0; i < waveform.length; i++) {
       const amplitude = waveform[i];
       const angle = map(i, 0, waveform.length, 0, 361);
-      const height = map(amplitude, -1, 1, -50, 50);
+      const height = map(amplitude, -1, 1, psycheMode ? -30 : -50, psycheMode ? 30 : 50);
       const radius = map(energy, 0, 256, this.imageWidth / 3, this.imageWidth / 2.4);
       const x = (radius + height) * cos(angle + frameCount / 2);
       const y = (radius + height) * sin(angle + frameCount / 2);
