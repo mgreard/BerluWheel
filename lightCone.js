@@ -11,7 +11,7 @@ class LightCone {
   update(fftAnalyzer) {
     // Calculer la luminosité en fonction de la musique
     const energy = fftAnalyzer.getEnergy(100, 300); // Ajuster la plage de fréquences
-    this.opacity = map(energy, 150, 256, 0, psycheMode ? 10 : 20);
+    this.opacity = map(energy, 150, 256, 0, psycheMode ? 40 : 20);
 
     // Faire tourner le cône de lumière
     this.angle += this.speed;

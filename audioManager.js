@@ -94,7 +94,7 @@ class AudioManager {
   
   displayLyrics() {
     push();
-    translate(width / 2, psycheMode ? height/2 + 300: height - 120);
+    translate(width / 2, height - 120);
     textAlign(CENTER, CENTER);
     let energy = this.fftAnalyzer.getEnergy(200, 400);
     lyricsTextSize = map(sin(millis() / 1000), -1, 1, 40, 40 * 1.4) * map(energy, 0, 250, 1, 1.05);
