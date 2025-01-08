@@ -155,7 +155,9 @@ function draw() {
 
   // 🎤 Synchronisation et affichage des paroles
   audioManager.syncLyrics();
-  audioManager.displayLyrics();
+  if(!psycheMode){
+    audioManager.displayLyrics();
+  }
   audioManager.handleEvents();
   
 }
