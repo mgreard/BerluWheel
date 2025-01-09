@@ -36,8 +36,7 @@ class Loup {
   display(audioManager) {
     if (this.isVisible) {
       const energy = audioManager.fftAnalyzer.getEnergy(10, 100); // Adjust frequency range
-      
-      if(energy > 150 && frameCount%6 == 0){
+      if(frameCount%30 == 0){
           this.nextImage();
       }
 

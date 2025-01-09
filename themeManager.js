@@ -311,7 +311,9 @@ const sunTheme = {
     bgColor: [58,134,255],
     bgAlpha: 160,
     blur: 2,
-    shaderIndex: -1
+    shaderIndex: -1,
+    textColor: "rgb(255,189,0)",
+    textStrokeColor: "#fff"
   },
   wheelSegments: defaultWheelSegments
 };
@@ -364,7 +366,8 @@ const matrixedTheme = {
     bgColor: [14, 14, 14],
     bgAlpha: 215,
     blur: 1,
-    shaderIndex: 2
+    shaderIndex: 2,
+    textColor: "rgb(3,160,98)"
   },
   wheelSegments: defaultWheelSegments
 };
@@ -483,18 +486,20 @@ const bababoyTheme = {
     addBlend: false
   },
   circleBars: {
-    total: 30,
+    total: 25,
     fillColor: [246,200,29],
     fillAlpha: 255,
-    width: 10,
-    scaleFactor: 150,
-    radius: 220
+    width: 20,
+    scaleFactor: 300,
+    radius: 300
   },
   general: {
     bgColor: [41,99,48],
     bgAlpha: 220,
     blur: 1,
-    shaderIndex: 2
+    shaderIndex: 1,
+    textColor: "#296330",
+    textStrokeColor: "#fff"
   },
   wheelSegments: bababoyWheelSegments
 };

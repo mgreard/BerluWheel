@@ -55,7 +55,7 @@ function recordLyrics () {
 
     // Once all lyrics are collected, log them
     //if (currentIndex === lyrics.length) {
-      console.log(JSON.stringify({ lyrics: lyricsData }, null, 2));
+      //console.log(JSON.stringify({ lyrics: lyricsData }, null, 2));
     //}
   }
 }
@@ -85,5 +85,5 @@ function recordEvents(event) {
   recordedEvents.push({ time: audioManager.audioTrack.currentTime(), action: action });
   
   // Afficher dans la console pour le debug
-  console.log(JSON.stringify({ events: recordedEvents }, null, 2));
+  //console.log(JSON.stringify({ events: recordedEvents }, null, 2));
 }

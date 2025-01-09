@@ -12,7 +12,7 @@ class CircleBars {
     translate(width / 2, height / 2);
     for (let i = 0; i < theme.circleBars.total; i++) {
       const angle = i * angleStep; // Calculer l'angle pour chaque barre
-      const amplitude = spectrum[floor(map(i, 0, theme.circleBars.total, 0, spectrum.length - 200))]; // Obtenir l'amplitude
+      const amplitude = spectrum[floor(map(i, 0, theme.circleBars.total, 0, spectrum.length - 300))]; // Obtenir l'amplitude
       const barHeight = map(amplitude, 0, 255, 0, theme.circleBars.scaleFactor); // Échelle de hauteur
       const x = theme.circleBars.radius * cos(angle);
       const y = theme.circleBars.radius * sin(angle);

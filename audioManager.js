@@ -94,6 +94,7 @@ class AudioManager {
   }
   
   displayLyrics() {
+    const theme = themeManager.setting;
     push();
     translate(width / 2, height - 120);
     textAlign(CENTER, CENTER);
@@ -101,7 +102,11 @@ class AudioManager {
     lyricsTextSize = map(sin(millis() / 1000), -1, 1, 40, 40 * 1.4) * map(energy, 0, 250, 1, 1.05);
     textSize(lyricsTextSize);
     textFont(myFont);
-    fill(255);
+    if(theme.general.textStrokeColor){
+      stroke(theme.general.textStrokeColor);
+      strokeWeight(8);
+    }
+    fill(theme.general.textColor || 255);
     text(this.currentLyric, 0, 0);
     pop();
   }
