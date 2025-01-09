@@ -4,31 +4,38 @@ function easeOutCubic(x) {
   return 1 - pow(1 - x, 3);
 }
 
-let lyricsSample = `pour un badge VIP
-pendant une longue intro
-pour voir la queue du loup
+let lyricsSample = `pour un badge VIP,
+pendant une longue intro,
+(fais tourner ! fais tourner !)
+pour voir la queue du loup,
 pour douze heures de TO
-On fait tourner la roue
 
 On fait tourner la roue
-
-On fait tourner la roue
+(fais tourner ! fais tourner !)
 sur la berlu TV
+(fais tourner ! fais tourner !)
 on fait le cri du loup
-auto-roue c est doublee
+(fais tourner ! fais tourner !)
+auto roue c est doublee
+(Woyoy !)
 
-pour faire un contre-cut
-entendre une anecdote
-pour voir la queue du loup
-pour gagner le jackpot
-On fait tourner la roue
+pour un badge VIP,
+pour douze heures de TO,
+(fais tourner ! fais tourner !)
+pour voir la queue du loup,
+pour gagner le gros lot
 
 On fait tourner la roue
-
-On fait tourner la roue
+(fais tourner ! fais tourner !)
 sur la berlu TV
+(fais tourner ! fais tourner !)
 on fait le cri du loup
+(fais tourner ! fais tourner !)
 bananes bien depensees
+(Woyoy !)
+
+one love, iyah !
+Fais tourner la roue, Bababoy !
 `;
 
 let lyrics = lyricsSample.split('\n');
@@ -47,9 +54,9 @@ function recordLyrics () {
     }
 
     // Once all lyrics are collected, log them
-    if (currentIndex === lyrics.length) {
-      //console.log(JSON.stringify({ lyrics: lyricsData }, null, 2));
-    }
+    //if (currentIndex === lyrics.length) {
+      console.log(JSON.stringify({ lyrics: lyricsData }, null, 2));
+    //}
   }
 }
 
@@ -78,5 +85,5 @@ function recordEvents(event) {
   recordedEvents.push({ time: audioManager.audioTrack.currentTime(), action: action });
   
   // Afficher dans la console pour le debug
-  //console.log(JSON.stringify({ events: recordedEvents }, null, 2));
+  console.log(JSON.stringify({ events: recordedEvents }, null, 2));
 }

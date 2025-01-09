@@ -1,0 +1,170 @@
+{
+   "lyrics": [
+    {
+      "time": 17.8,
+      "text": "pour un badge VIP,"
+    },
+    {
+      "time": 20.19,
+      "text": "pendant une longue intro,"
+    },
+    {
+      "time": 22.03,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 25.77,
+      "text": "pour voir la queue du loup,"
+    },
+    {
+      "time": 27.62,
+      "text": "pour douze heures de TO"
+    },
+    {
+      "time": 29.7,
+      "text": ""
+    },
+    {
+      "time": 31.58,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 33.65,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 35.25,
+      "text": "sur la berlu TV"
+    },
+    {
+      "time": 37.2,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 38.89,
+      "text": "on fait le cri du loup"
+    },
+    {
+      "time": 40.89,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 42.7,
+      "text": "auto roue c est doublee"
+    },
+    {
+      "time": 45.08,
+      "text": "(Woyoy !)"
+    },
+    {
+      "time": 46.76,
+      "text": ""
+    },
+    {
+      "time": 49.89,
+      "text": "pour un badge VIP,"
+    },
+    {
+      "time": 50.78,
+      "text": "pour douze heures de TO,"
+    },
+    {
+      "time": 52.6,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 56.31,
+      "text": "pour voir la queue du loup,"
+    },
+    {
+      "time": 58.42,
+      "text": "pour gagner le gros lot"
+    },
+    {
+      "time": 60.53,
+      "text": ""
+    },
+    {
+      "time": 61.77,
+      "text": "On fait tourner la roue"
+    },
+    {
+      "time": 64.07,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 65.72,
+      "text": "sur la berlu TV"
+    },
+    {
+      "time": 67.83,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 69.5,
+      "text": "on fait le cri du loup"
+    },
+    {
+      "time": 71.68,
+      "text": "(fais tourner ! fais tourner !)"
+    },
+    {
+      "time": 73.4,
+      "text": "bananes bien depensees"
+    },
+    {
+      "time": 75.86,
+      "text": "(Woyoy !)"
+    },
+    {
+      "time": 77.66,
+      "text": ""
+    },
+    {
+      "time": 80.50,
+      "text": "one love iyah !"
+    },
+    {
+      "time": 84.57,
+      "text": "Fais tourner la roue Bababoy !"
+    },
+    {
+      "time": 88.11,
+      "text": ""
+    }
+  ],
+  "events": [
+    {
+      "time": 22.30854875283447,
+      "action": "start_roll"
+    },
+    {
+      "time": 33.26256235827665,
+      "action": "start_roll"
+    },
+    {
+      "time": 37.33185941043084,
+      "action": "start_roll"
+    },
+    {
+      "time": 41.02963718820862,
+      "action": "start_roll"
+    },
+    {
+      "time": 52.900839002267574,
+      "action": "start_roll"
+    },
+    {
+      "time": 64.18573696145124,
+      "action": "start_roll"
+    },
+    {
+      "time": 67.87190476190476,
+      "action": "start_roll"
+    },
+    {
+      "time": 71.6741723356009,
+      "action": "start_roll"
+    }
+  ]
+} 

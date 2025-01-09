@@ -33,7 +33,7 @@ class Wheel {
   update() {
     if(!this.isForeground){
       if (this.isRotating) {
-        this.angle -= easeOutCubic(map(this.angle, this.previousAngle, this.targetAngle, 0.04, 0.005));
+        this.angle -= easeOutCubic(map(this.angle, this.previousAngle, this.targetAngle, 0.02, 0.005));
         if (this.angle < this.targetAngle) {
           this.isRotating = false;
           this.previousAngle = this.angle;

@@ -17,11 +17,11 @@ class Waveform {
     strokeWeight(theme.waveform.weight);
     for (let i = 0; i < waveform.length; i++) {
       const amplitude = waveform[i];
-      const angle = map(i, 0, waveform.length, 0, 361);
+      const angle = map(i, 0, waveform.length, 0, TWO_PI * theme.waveform.entropy);
       const waveHeight = map(amplitude, -1, 1, theme.waveform.amplitude[0], theme.waveform.amplitude[1]);
       const radius = map(energy, 0, 256, theme.waveform.radiusRange[0], theme.waveform.radiusRange[1]);
-      const x = (radius + waveHeight) * cos(angle + frameCount / 2);
-      const y = (radius + waveHeight) * sin(angle + frameCount / 2);
+      const x = (radius + waveHeight) * cos(angle);
+      const y = (radius + waveHeight) * sin(angle);
       vertex(x, y);
     }
     endShape(OPEN);
