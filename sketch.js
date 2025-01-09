@@ -8,6 +8,7 @@ let imagesToDrop = {
   "bouee" : "",
   "cana1" : "",
   "cana2" : "",
+  "coin" : "",
 };
 
 // 🖥️ Visualiseurs audio
@@ -47,6 +48,7 @@ function preload() {
   imagesToDrop.bouee = loadImage("assets/images/Boue.png");
   imagesToDrop.cana1 = loadImage("assets/images/Cana.png");
   imagesToDrop.cana2 = loadImage("assets/images/Cana2.png");
+  imagesToDrop.coin = loadImage("assets/images/Coin.png");
   
   // 🦊 Initialisation de l'image Loup
   loup = new Loup(imageWidth, imageHeight);
@@ -80,6 +82,7 @@ function setup() {
   themeManager.addTheme('matrixed', matrixedTheme);
   themeManager.addTheme('google', googleTheme);
   themeManager.addTheme('bababoy', bababoyTheme);
+  themeManager.addTheme('casino', casinoTheme);
   themeManager.applyTheme('default');
   
   // 🖥️ Initialisation des visualiseurs

@@ -13,6 +13,7 @@ class ThemeManager {
     this.themeSelector.option('matrixed');
     this.themeSelector.option('google');
     this.themeSelector.option('bababoy');
+    this.themeSelector.option('casino');
     this.themeSelector.changed(() => {
       const selectedTheme = this.themeSelector.value();
       this.applyTheme(selectedTheme);
@@ -441,7 +442,6 @@ const bababoyWheelSegments = [
   { color: "#296330", weight: 2 },
 ];
 const bababoyImageDrops = ["cana1", "cana2"];
-
 const bababoyTheme = {
   renderOrder: bababoyRenderOrder,
   imagesDrop: bababoyImageDrops,
@@ -502,4 +502,86 @@ const bababoyTheme = {
     textStrokeColor: "#fff"
   },
   wheelSegments: bababoyWheelSegments
+};
+
+
+
+const casinoRenderOrder = ["bgColor", "spectrum", "shader", "blur", "wheel2", "loup", "imageDrops"];
+const casinoImageDrops = ["coin", "coin"];
+const casinoWheelSegments = [
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+  { color: "#972a27", weight: 2 },
+  { color: "#000", weight: 2 },
+];
+const casinoTheme = {
+  renderOrder: casinoRenderOrder,
+  imagesDrop: casinoImageDrops,
+  spectrum: {
+    radiusRange: [350, 400],
+    scalingFactor: [1, 1.1],
+    strokeColor: [0,0,0],
+    strokeAlpha: 0,
+    strokeWeight: 0,
+    fillColor: [255,255,255],
+    fillAlpha: 20,
+    exclusionBlend: false
+  },
+  waveform: {
+    alpha: 0,
+    weight: 8,
+    color: [151,42,39],
+    radiusRange: [400 / 2, 400 / 1.9],
+    amplitude: [-20, 20],
+    entropy: 1
+  },
+  wheelBg: {
+    alpha: 255,
+    segmentStrokeColor: [255, 255, 255],
+    segmentStrokeAlpha: 0,
+    segmentStrokeWeight: 0
+  },
+  wheelFg: {
+    alpha: 255,
+    radiusRange: [450, 500],
+    strokeColor: [0,0,0],
+    strokeAlpha: 255,
+    strokeWeight: 6,
+    segmentStrokeColor: [255,255,255],
+    segmentStrokeAlpha: 255,
+    segmentStrokeWeight: 4,
+  },
+  lightCone: {
+    total: 10,
+    alpha: 10,
+    color: [91,186,111],
+    addBlend: false
+  },
+  circleBars: {
+    total: 25,
+    fillColor: [246,200,29],
+    fillAlpha: 255,
+    width: 20,
+    scaleFactor: 300,
+    radius: 300
+  },
+  general: {
+    bgColor: [53,101,77],
+    bgAlpha: 255,
+    blur: 1,
+    shaderIndex: -1
+  },
+  wheelSegments: casinoWheelSegments
 };
