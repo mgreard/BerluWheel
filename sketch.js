@@ -66,6 +66,7 @@ function setup() {
   
   // 🔊 Outils d'analyse audio
   let fftAnalyzer = new p5.FFT();
+  fftAnalyzer.smooth(0.9)
   let peakDetector = new p5.PeakDetect();
   let amplitudeAnalyzer = new p5.Amplitude();
 

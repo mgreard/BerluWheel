@@ -21,6 +21,7 @@ class AudioManager {
     // Track selector
     this.trackSelect = createSelect().parent("#controls");
     this.trackSelect.attribute("class", "tracks_select");
+    this.trackSelect.option("loup_reggae_2");
     this.trackSelect.option("loup_reggae");
     this.trackSelect.option("loup_techno_dub");
     this.trackSelect.option("loup_dance_funk");

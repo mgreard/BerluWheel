@@ -4,10 +4,10 @@ function easeOutCubic(x) {
   return 1 - pow(1 - x, 3);
 }
 
-let lyricsSample = `pour un badge VIP,
-pendant une longue intro,
-(fais tourner ! fais tourner !)
-pour voir la queue du loup,
+let lyricsSample = `
+pour un badge VIP
+pendant une longue intro
+pour voir la queue du loup
 pour douze heures de TO
 
 On fait tourner la roue
@@ -17,12 +17,13 @@ sur la berlu TV
 on fait le cri du loup
 (fais tourner ! fais tourner !)
 auto roue c est doublee
-(Woyoy !)
-
-pour un badge VIP,
-pour douze heures de TO,
 (fais tourner ! fais tourner !)
-pour voir la queue du loup,
+
+On fait tourner la roue
+
+pour un badge VIP
+pour douze heures de TO
+pour voir la queue du loup
 pour gagner le gros lot
 
 On fait tourner la roue
@@ -32,10 +33,11 @@ sur la berlu TV
 on fait le cri du loup
 (fais tourner ! fais tourner !)
 bananes bien depensees
-(Woyoy !)
+(fais tourner ! fais tourner !)
 
-one love, iyah !
-Fais tourner la roue, Bababoy !
+(fais tourner ! fais tourner !)
+
+(fais tourner ! fais tourner !)
 `;
 
 let lyrics = lyricsSample.split('\n');
